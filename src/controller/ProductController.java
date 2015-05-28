@@ -91,9 +91,7 @@ public class ProductController {
 	public Long getId() {
 		return id;
 	}
-	public void setId(Long id) {
-		this.id = id;
-	}
+	
 	public List<Product> getList() {
 		return list;
 	}

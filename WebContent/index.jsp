@@ -1,4 +1,3 @@
-
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="f" uri="http://java.sun.com/jsf/core"%>
 <%@ taglib prefix="h" uri="http://java.sun.com/jsf/html"%>
@@ -12,7 +11,7 @@
 <body>
 <f:view>	
 <h:form>
-	<h1>siw-mvc-es2</h1>
+	<h1>Prodotti</h1>
 	<div>
 		Inserisci un Prodotto:
 		<h:commandButton value="Submit" action="newProduct.jsp" />

@@ -21,10 +21,9 @@ public class Address {
 	public Address(){
 	}
 	
-	public Address(Long id, String street, String city, String state,
+	public Address(String street, String city, String state,
 			String zipcode, String country) {
 		super();
-		this.id = id;
 		this.street = street;
 		this.city = city;
 		this.state = state;
@@ -35,10 +34,7 @@ public class Address {
 	public Long getId() {
 		return id;
 	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
+	
 
 	public String getStreet() {
 		return street;

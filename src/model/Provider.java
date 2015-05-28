@@ -32,10 +32,9 @@ public class Provider {
 	public Provider(){
 	}
 
-	public Provider(Long id, String name, String phoneNumber, String email,
+	public Provider(String name, String phoneNumber, String email,
 			String vatid, Address address, List<Product> products) {
 		super();
-		this.id = id;
 		this.name = name;
 		this.phoneNumber = phoneNumber;
 		this.email = email;
@@ -47,10 +46,6 @@ public class Provider {
 
 	public Long getId() {
 		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public String getName() {

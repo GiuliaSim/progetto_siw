@@ -30,25 +30,50 @@ public class Product {
 	private String code;
 	@ManyToMany(cascade= {CascadeType.PERSIST})
 	private List<Provider> providers;
+	
+	@Column
+	private Integer quantityAvailable;
 
 	public Product() {
 	}
 
-	public Product(String name, Float price, String description, String code) {
+	public Product(String name, Float price, String description, String code, Integer quantityAvailable) {
 		this.name = name;
 		this.price = price;
 		this.description = description;
 		this.code = code;
+		this.quantityAvailable = quantityAvailable;
 	}
 
 	public Long getId() {
 		return id;
 	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
 	
+	
+	public Integer getQuantityAvailable() {
+		return quantityAvailable;
+	}
+
+	public void setQuantityAvailable(Integer quantityAvailable) {
+		this.quantityAvailable = quantityAvailable;
+	}
+
+	public List<Provider> getProviders() {
+		return providers;
+	}
+
+	public void setProviders(List<Provider> providers) {
+		this.providers = providers;
+	}
+
+	public Integer getQuantitaMagazzino() {
+		return quantityAvailable;
+	}
+
+	public void setQuantitaMagazzino(Integer quantitaMagazzino) {
+		this.quantityAvailable = quantitaMagazzino;
+	}
+
 	public String getName() {
 		return this.name;
 	}
@@ -90,15 +115,13 @@ public class Product {
 		return this.code.hashCode();
 	}
 
+	@Override
 	public String toString() {
-		final StringBuilder sb = new StringBuilder();
-		sb.append("Product"); 
-		sb.append("{id=").append(id); 
-		sb.append(", name='").append(name); 
-		sb.append(", price=").append(price); 
-		sb.append(", description='").append(description); 
-		sb.append(", code='").append(code);
-		sb.append("}\n");
-		return sb.toString();
+		return "Product [id=" + id + ", name=" + name + ", price=" + price
+				+ ", description=" + description + ", code=" + code
+				+ ", providers=" + providers + ", quantitaMagazzino="
+				+ quantityAvailable + "]";
 	}
+
+	
 }
