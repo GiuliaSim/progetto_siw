@@ -9,17 +9,22 @@
 <title>Progeto SIW</title>
 </head>
 <body>
-<f:view>	
-<h:form>
-	<h1>Prodotti</h1>
-	<div>
-		Inserisci un Prodotto:
-		<h:commandButton value="Submit" action="newProduct.jsp" />
-	</div>
-<div>
-		Lista dei Prodotti:
-		<h:commandButton value="Submit" action="products.jsp" />
-	</div></h:form>
-</f:view>
+	<f:view>
+		<h:form>
+			<h1>Prodotti</h1>
+			<div>
+				Inserisci un Prodotto:
+				<h:commandButton value="Submit" action="newProduct.jsp" />
+			</div>
+			<div>
+				Lista dei Prodotti:
+				<h:commandButton value="Submit" action="products.jsp" />
+			</div>
+			<div><h:commandButton value="Logout" 
+					action="#{userController.logoutUser }" />
+					<h:outputLink></h:outputLink> </div>
+					
+		</h:form>
+	</f:view>
 </body>
 </html>

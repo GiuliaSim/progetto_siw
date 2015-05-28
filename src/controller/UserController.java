@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 
 import facade.UserFacade;
 import model.Address;
@@ -13,7 +14,7 @@ import model.User;
 
 @ManagedBean
 public class UserController {
-	
+
 	private Long id;
 	private User user;
 	private String name;
@@ -28,23 +29,25 @@ public class UserController {
 	private String signUpError;
 	@EJB
 	private UserFacade userFacade;
-	
+
 	public String createUser(){
 		try{
-		this.user = this.userFacade.createUser(name, lastname, email, password, dateOfBirth);
-		return "index";
+			this.user = this.userFacade.createUser(name, lastname, email, password, dateOfBirth);
+			FacesContext context = FacesContext.getCurrentInstance();
+			context.getExternalContext().getSessionMap().put("user", this.user);
+			return "index";
 		}catch(Exception e){
 			this.setSignUpError("Email is not valid");
 		}
 		return "login";
 	}
-	
+
 	public String loginUser(){
 		try{
 			this.user = this.userFacade.getUser(email);
 			if(this.userFacade.checkPwd(user,password)){
-				//FacesContext context = FacesContext.getCurrentInstance();
-				//context.getExternalContext().getSessionMap().put("user", this.user);
+				FacesContext context = FacesContext.getCurrentInstance();
+				context.getExternalContext().getSessionMap().put("user", this.user);
 				return "index";
 			}
 			this.setLoginError("Wrong Password or Email!");
@@ -52,6 +55,11 @@ public class UserController {
 		catch(Exception e){
 			this.setLoginError("Wrong Password or email!");
 		}
+		return "login";
+	}
+	
+	public String logoutUser(){
+		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().remove("user");
 		return "login";
 	}
 
@@ -162,7 +170,7 @@ public class UserController {
 	public void setSignUpError(String signUpError) {
 		this.signUpError = signUpError;
 	}
-	
-	
+
+
 
 }

@@ -9,45 +9,43 @@
 <title>Registrazione Utente</title>
 </head>
 <body>
-<f:view>
+	<f:view>
 		<h:form>
 			<div>
 				Name:
-				<h:inputText value="#{userController.name}"
-					required="true"
+				<h:inputText value="#{userController.name}" required="true"
 					requiredMessage="Name is mandatory" id="name" />
 				<strong><h:message for="name" /></strong>
 			</div>
 			<div>
 				Cognome:
-				<h:inputText value="#{userController.lastname}" 
-					required="true"
+				<h:inputText value="#{userController.lastname}" required="true"
 					requiredMessage="Lastname is mandatory" id="lastname" />
 				<h:message for="lastname" />
 			</div>
 			<div>
 				Email:
-				<h:inputText value="#{userController.email}" 
-					required="true"
+				<h:inputText value="#{userController.email}" required="true"
 					requiredMessage="Email is mandatory" id="email" />
 				<h:message for="email" />
 			</div>
 			<div>
 				Password:
-				<h:inputTextarea value="#{userController.password}"
-					required="true" 
+				<h:inputTextarea value="#{userController.password}" required="true"
 					requiredMessage="Password is mandatory" id="password" />
 				<h:message for="password" />
 			</div>
 			<div>
 				Data di nascita:
 				<h:inputText value="#{userController.dateOfBirth}">
-					<f:convertDateTime pattern="yyyy-MM-dd" />
+					<f:convertDateTime pattern="dd-MM-yyyy" />
 				</h:inputText>
 			</div>
 			<div>
 				<h:commandButton value="Submit"
 					action="#{userController.createUser()}" />
+				<h:outputLink style="color: Blue"
+					value="faces/loginAmministratore.jsp">Torna indietro</h:outputLink>
 			</div>
 		</h:form>
 

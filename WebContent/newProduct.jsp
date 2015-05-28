@@ -14,22 +14,19 @@
 		<h:form>
 			<div>
 				Name:
-				<h:inputText value="#{productController.name}"
-					required="true"
+				<h:inputText value="#{productController.name}" required="true"
 					requiredMessage="Name is mandatory" id="name" />
 				<strong><h:message for="name" /></strong>
 			</div>
 			<div>
 				Code:
-				<h:inputText value="#{productController.code}" 
-					required="true"
+				<h:inputText value="#{productController.code}" required="true"
 					requiredMessage="Code is mandatory" id="code" />
 				<h:message for="code" />
 			</div>
 			<div>
 				Price:
-				<h:inputText value="#{productController.price}" 
-					required="true"
+				<h:inputText value="#{productController.price}" required="true"
 					requiredMessage="Price is mandatory"
 					converterMessage="Price must be a number" id="price" />
 				<h:message for="price" />
@@ -42,6 +39,7 @@
 			<div>
 				<h:commandButton value="Submit"
 					action="#{productController.createProduct()}" />
+				<h:outputLink style="color: Blue" value="faces/index.jsp">annulla</h:outputLink>
 			</div>
 		</h:form>
 

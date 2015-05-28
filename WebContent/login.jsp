@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Login Utente:</title>
+<title>Login Utente</title>
 </head>
 <body>
 	<f:view>
@@ -19,28 +19,37 @@
 						<td>Email</td>
 						<td><h:inputText value="#{userController.email}"
 								styleClass="form-control" required="true"
-								requiredMessage="Email obbligatiorio!" id="email" /></td>
+								requiredMessage="  Email obbligatiorio! " id="email" />
+								<h:message for="email" /></td>
+								
 					</tr>
 					<tr>
 						<td>Password</td>
 						<td><h:inputSecret value="#{userController.password}"
 								styleClass="form-control" required="true"
-								requiredMessage="Password obbligatoria!" id="password" /></td>
+								requiredMessage="  Password obbligatoria! " id="password" />
+								<h:message for="password" /></td>
 					</tr>
 				</table>
 				<h:commandButton styleClass="btn btn-warning" value="Login"
 					action="#{userController.loginUser }" />
-				<h:message for="email" />
-				<h:message for="password" />
+				
+				
 				<p align="center">
 					<b>${userController.loginError }</b>
 				</p>
+				
 				<div align="center">
 					<h3>
 						Non sei ancora registrato?
 						<h:outputLink style="color: Orange"
 							value="faces/newUserRegistration.jsp">Clicca qui!</h:outputLink>
 					</h3>
+				</div>
+				
+				<div align="center">
+						<h:outputLink style="color: Blue"
+							value="faces/loginAmministratore.jsp">Login come Amministratore</h:outputLink>
 				</div>
 			</div>
 		</h:form>
