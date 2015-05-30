@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import model.Address;
 import model.User;
 
 
@@ -25,13 +26,14 @@ public class UserFacade {
 		this.em = em;
 	}
 
-	public User createUser(String name, String lastname, String email,String password, Date dateOfBirth ) {
+	public User createUser(String name, String lastname, String email,String password, Date dateOfBirth,Address address) {
 		User user = new User();
 		user.setName(name);
 		user.setLastname(lastname);
 		user.setEmail(email);
 		user.setPassword(password);
 		user.setDateOfBirth(dateOfBirth);
+		user.setAddress(address);
 		try {
 			this.em.persist(user);
 			return user;

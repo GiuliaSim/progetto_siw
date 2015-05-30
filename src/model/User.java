@@ -36,7 +36,7 @@ public class User {
 	@OneToMany(mappedBy="user", fetch=FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
 	private List<Order> orders;
 	
-	@OneToOne
+	@OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
 	private Address address;
 	
 	public User(){

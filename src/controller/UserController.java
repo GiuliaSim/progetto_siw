@@ -24,15 +24,24 @@ public class UserController {
 	private Date dateOfBirth;
 	private Date registrationDate;
 	private List<Order> orders;
+	
 	private Address address;
-	private String loginError;
-	private String signUpError;
+	private String street;
+	private String city;
+	private String country;
+	private String state;
+	private String zipcode;
+	
 	@EJB
 	private UserFacade userFacade;
-
+	
+	private String loginError;
+	private String signUpError;
+	
 	public String createUser(){
+		this.address=new Address( this.street, this.city,  this.state, this.zipcode, this.country);
 		try{
-			this.user = this.userFacade.createUser(name, lastname, email, password, dateOfBirth);
+			this.user = this.userFacade.createUser(name, lastname, email, password, dateOfBirth, address);
 			FacesContext context = FacesContext.getCurrentInstance();
 			context.getExternalContext().getSessionMap().put("user", this.user);
 			return "index";
@@ -169,6 +178,46 @@ public class UserController {
 
 	public void setSignUpError(String signUpError) {
 		this.signUpError = signUpError;
+	}
+
+	public String getStreet() {
+		return street;
+	}
+
+	public void setStreet(String street) {
+		this.street = street;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public String getZipcode() {
+		return zipcode;
+	}
+
+	public void setZipcode(String zipcode) {
+		this.zipcode = zipcode;
 	}
 
 
