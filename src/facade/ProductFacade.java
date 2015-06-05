@@ -5,7 +5,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 import model.Product;
 
@@ -37,14 +37,12 @@ public class ProductFacade {
 	}
 
 	public Product getProduct(Long id) {
-		Product product = em.find(Product.class, id);
+		Product product = this.em.find(Product.class, id);
 		return product;
 	}
 	
 	public List<Product> getAllProducts() {
-		//TODO
-		//return new LinkedList<Product>(products.values());
-		Query allProduct = em.createQuery("SELECT p FROM Product p");
+		TypedQuery<Product> allProduct = this.em.createQuery("SELECT p FROM Product p",Product.class);
 		return allProduct.getResultList();
 	}
 
@@ -54,10 +52,8 @@ public class ProductFacade {
 	}
 
 	public void deleteProduct(Long id) {
-		Product product = em.find(Product.class, id);
-		em.remove(product);
-		//TODO
-		//products.remove(id);
+		Product product = this.em.find(Product.class, id);
+		this.em.remove(product);
 			
 	}
 }

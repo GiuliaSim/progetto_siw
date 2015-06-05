@@ -39,7 +39,7 @@
 			<div>
 				<h:commandButton value="Submit"
 					action="#{productController.createProduct()}" />
-				<h:outputLink style="color: Blue" value="faces/index.jsp">annulla</h:outputLink>
+				<h:outputLink style="color: Blue" value="faces/homeUser.jsp">annulla</h:outputLink>
 			</div>
 		</h:form>
 

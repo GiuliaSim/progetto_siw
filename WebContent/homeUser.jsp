@@ -6,24 +6,26 @@
 <html>
 <head>
 <meta charset="US-ASCII">
-<title>Progeto SIW</title>
+<title>Home User</title>
 </head>
 <body>
 	<f:view>
 		<h:form>
-			<h1>Prodotti</h1>
+			<h1>Benvenuto</h1>
 			<div>
-				Inserisci un Prodotto:
-				<h:commandButton value="Submit" action="newProduct.jsp" />
+				Effettua Ordine:
+				<h:commandButton value="Submit" action="#{productController.listProduct()}" />
 			</div>
 			<div>
 				Lista dei Prodotti:
-				<h:commandButton value="Submit" action="products.jsp" />
+				<h:commandButton value="Submit"
+					action="#{productController.listProduct() }" />
 			</div>
-			<div><h:commandButton value="Logout" 
+			<div>
+				<h:commandButton value="Logout"
 					action="#{userController.logoutUser }" />
-					<h:outputLink></h:outputLink> </div>
-					
+			</div>
+
 		</h:form>
 	</f:view>
 </body>

@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 
 import model.Product;
 import facade.ProductFacade;
@@ -19,7 +20,7 @@ public class ProductController {
 	private String description;
 	private String code;
 	private Product product;
-	private List<Product> list;
+	private List<Product> products;
 	@EJB
 	private ProductFacade productFacade;
 	
@@ -28,17 +29,21 @@ public class ProductController {
 		this.product = this.productFacade.createProduct(name,price, description,code);
 		return "product";
 	}
+
+	public String deleteProduct(){
+		this.productFacade.deleteProduct(id);
+		this.products = this.productFacade.getAllProducts();
+		return "productsAdministrator";
+
+	}
+	
 	public String listProduct(){
-		this.setList(this.productFacade.getAllProducts());
+		this.products = this.productFacade.getAllProducts();
 		return "products";
 	}
-	public String deleteProduct(){
-
-		ProductFacade facade = new ProductFacade();
-		facade.deleteProduct(id);
-		List<Product> products = facade.getAllProducts();
-		return "products";
-
+	public String listProductAdministrator(){
+		this.products = this.productFacade.getAllProducts();
+		return "productsAdministrator";
 	}
 
 	public ProductFacade getProductFacade() {
@@ -92,11 +97,11 @@ public class ProductController {
 		return id;
 	}
 	
-	public List<Product> getList() {
-		return list;
+	public List<Product> getProducts() {
+		return products;
 	}
-	public void setList(List<Product> list) {
-		this.list = list;
+	public void setProducts(List<Product> list) {
+		this.products = list;
 	}
 
 

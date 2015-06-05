@@ -9,36 +9,42 @@
 </head>
 <body>
 	<f:view>
-		<div>
+		<div align="center">
+			<p align="right">
+				<h:outputLink style="color: Blue"
+					value="faces/loginAmministratore.jsp">Login come Amministratore</h:outputLink>
+			</p>
 			<h1>Login Utente</h1>
+
 		</div>
 		<h:form>
+
 			<div align="center">
 				<table>
 					<tr>
 						<td>Email</td>
 						<td><h:inputText value="#{userController.email}"
 								styleClass="form-control" required="true"
-								requiredMessage="  Email obbligatiorio! " id="email" />
-								<h:message for="email" /></td>
-								
+								requiredMessage="  Email obbligatiorio! " id="email" /> <h:message
+								for="email" /></td>
+
 					</tr>
 					<tr>
 						<td>Password</td>
 						<td><h:inputSecret value="#{userController.password}"
 								styleClass="form-control" required="true"
-								requiredMessage="  Password obbligatoria! " id="password" />
-								<h:message for="password" /></td>
+								requiredMessage="  Password obbligatoria! " id="password" /> <h:message
+								for="password" /></td>
 					</tr>
 				</table>
 				<h:commandButton styleClass="btn btn-warning" value="Login"
-					action="#{userController.loginUser }" />
-				
-				
+					action="#{userController.loginUser}" />
+
+
 				<p align="center">
-					<b>${userController.loginError }</b>
+					<b>${userController.loginError}</b>
 				</p>
-				
+
 				<div align="center">
 					<h3>
 						Non sei ancora registrato?
@@ -46,11 +52,12 @@
 							value="faces/newUserRegistration.jsp">Clicca qui!</h:outputLink>
 					</h3>
 				</div>
-				
 				<div align="center">
-						<h:outputLink style="color: Blue"
-							value="faces/loginAmministratore.jsp">Login come Amministratore</h:outputLink>
+					<h:commandLink value="Consulta catalogo"
+						action="#{productController.listProduct()}" immediate="true" />
 				</div>
+
+
 			</div>
 		</h:form>
 	</f:view>

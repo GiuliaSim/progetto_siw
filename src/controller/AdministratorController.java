@@ -22,16 +22,16 @@ public class AdministratorController {
 	@EJB
 	private AdministratorFacade administratorFacade;
 
-	public String createAdministrator(){
+	/*public String createAdministrator(){
 		try{
 			this.administrator = this.administratorFacade.createAdministrator(name, lastname, email, password);
 			FacesContext context = FacesContext.getCurrentInstance();
 			context.getExternalContext().getSessionMap().put("user", this.administrator);
-			return "index";
+			return "homeAdministrator";
 		}catch(Exception e){
 			this.setSingUpError("Email is not valid.");
 		}return "login";
-	}
+	}*/
 
 	public String loginAdministrator(){
 		try{
@@ -39,10 +39,10 @@ public class AdministratorController {
 			if(this.administratorFacade.checkPwd(administrator, password)){
 				FacesContext context = FacesContext.getCurrentInstance();
 				context.getExternalContext().getSessionMap().put("administrator", this.administrator);
-				return "index";
-			}this.setLoginError("Wrong Password or Email ");
+				return "homeAdministrator";
+			}this.setLoginError("Email o Password sbagliata");
 		}catch(Exception e){
-			this.setLoginError("Wrong Password or Email ");
+			this.setLoginError("Email o Password sbagliata");
 		}return "login";
 	}
 	

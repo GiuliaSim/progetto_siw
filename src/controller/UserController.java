@@ -44,7 +44,7 @@ public class UserController {
 			this.user = this.userFacade.createUser(name, lastname, email, password, dateOfBirth, address);
 			FacesContext context = FacesContext.getCurrentInstance();
 			context.getExternalContext().getSessionMap().put("user", this.user);
-			return "index";
+			return "homeUser";
 		}catch(Exception e){
 			this.setSignUpError("Email is not valid");
 		}
@@ -57,7 +57,7 @@ public class UserController {
 			if(this.userFacade.checkPwd(user,password)){
 				FacesContext context = FacesContext.getCurrentInstance();
 				context.getExternalContext().getSessionMap().put("user", this.user);
-				return "index";
+				return "homeUser";
 			}
 			this.setLoginError("Wrong Password or Email!");
 		}
