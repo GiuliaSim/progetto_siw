@@ -76,7 +76,7 @@
 					requiredMessage="state is mandatory" id="state" />
 				<strong><h:message for="state" /></strong>
 			</div>
-
+	<br>
 			<div>
 				<h:commandButton value="Submit"
 					action="#{userController.createUser()}" />

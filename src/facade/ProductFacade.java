@@ -42,7 +42,7 @@ public class ProductFacade {
 	}
 	
 	public List<Product> getAllProducts() {
-		TypedQuery<Product> allProduct = this.em.createQuery("SELECT p FROM Product p",Product.class);
+		TypedQuery<Product> allProduct = this.em.createQuery("SELECT p FROM Product p", Product.class);
 		return allProduct.getResultList();
 	}
 

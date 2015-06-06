@@ -24,21 +24,20 @@
 				</tr>
 				<c:forEach var="product" items="#{productController.products}">
 					<tr>
-						<!-- <td><h:commandLink
-								action="#{productController.getAllProducts}"
-								value="#{product.name}">
-								<f:param name="id" value="#{product.id }" />
-							</h:commandLink></td> -->
 						<td>${product.name}</td>
 						<td>${product.price}</td>
 						<td>${product.code}</td>
-						<td><h:commandButton
-								action="#{productController.deleteProduct()}" value="Elimina">
-								<f:param name="id" value="#{productController.id }" />
-							</h:commandButton>
+						
+						<td><h:commandLink
+								action="#{productController.deleteProduct}" value="Elimina">
+								<f:param name="id" value="#{product.id}" />
+							</h:commandLink>
 					</tr>
+					
 				</c:forEach>
 			</table>
+			<br>
+			<a href = "javascript:history.back()">Torna al menu principale</a>
 		</h:form>
 	</f:view>
 

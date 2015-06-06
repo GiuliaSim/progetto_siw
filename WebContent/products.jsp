@@ -35,6 +35,8 @@
 					</tr>
 				</c:forEach>
 			</table>
+			<br>
+			<a href = "javascript:history.back()">Torna indietro</a>
 		</h:form>
 	</f:view>
 

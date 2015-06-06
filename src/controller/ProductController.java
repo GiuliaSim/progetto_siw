@@ -11,8 +11,10 @@ import facade.ProductFacade;
 
 @ManagedBean
 public class ProductController {
-
-	//@ManagedProperty(value = "#{param.id}")
+	@EJB(beanName ="pFacade")
+	private ProductFacade productFacade;
+	
+	@ManagedProperty(value = "#{param.id}")
 	private Long id;
 	
 	private String name;
@@ -21,8 +23,7 @@ public class ProductController {
 	private String code;
 	private Product product;
 	private List<Product> products;
-	@EJB
-	private ProductFacade productFacade;
+	
 	
 	public String createProduct(){
 
@@ -31,9 +32,9 @@ public class ProductController {
 	}
 
 	public String deleteProduct(){
-		this.productFacade.deleteProduct(id);
+		this.productFacade.deleteProduct(this.id);
 		this.products = this.productFacade.getAllProducts();
-		return "productsAdministrator";
+		return "homeAdministrator";
 
 	}
 	
@@ -52,6 +53,14 @@ public class ProductController {
 
 	public void setProductFacade(ProductFacade productFacade) {
 		this.productFacade = productFacade;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getName() {
@@ -93,9 +102,7 @@ public class ProductController {
 	public void setProduct(Product product) {
 		this.product = product;
 	}
-	public Long getId() {
-		return id;
-	}
+
 	
 	public List<Product> getProducts() {
 		return products;
@@ -103,6 +110,7 @@ public class ProductController {
 	public void setProducts(List<Product> list) {
 		this.products = list;
 	}
+	
 
 
 }

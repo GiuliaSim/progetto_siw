@@ -44,7 +44,11 @@
 				<p align="center">
 					<b>${userController.loginError}</b>
 				</p>
-
+				<div align="center">
+					<h:commandLink value="Consulta catalogo"
+						action="#{productController.listProduct()}" immediate="true" />
+				</div>
+				<br>
 				<div align="center">
 					<h3>
 						Non sei ancora registrato?
@@ -52,10 +56,7 @@
 							value="faces/newUserRegistration.jsp">Clicca qui!</h:outputLink>
 					</h3>
 				</div>
-				<div align="center">
-					<h:commandLink value="Consulta catalogo"
-						action="#{productController.listProduct()}" immediate="true" />
-				</div>
+
 
 
 			</div>

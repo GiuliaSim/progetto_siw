@@ -14,6 +14,7 @@
 		<div>Code: ${productController.product.code}</div>
 		<div>Price: ${productController.product.price}</div>
 		<div>Description: ${productController.product.description}</div>
+		<a href = "faces/homeAdministrator.jsp">Torna al menu</a>
 	</f:view>
 </body>
 </html>
