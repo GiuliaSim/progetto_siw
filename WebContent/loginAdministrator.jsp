@@ -19,20 +19,21 @@
 						<td>Email</td>
 						<td><h:inputText value="#{administratorController.email}"
 								styleClass="form-control" required="true"
-								requiredMessage="Email obbligatiorio! " id="email" /></td>
+								requiredMessage="Email obbligatiorio! " id="email" />
+							<h:message for="email" /></td>
 					</tr>
 					<tr>
 						<td>Password</td>
 						<td><h:inputSecret
 								value="#{administratorController.password}"
 								styleClass="form-control" required="true"
-								requiredMessage="Password obbligatoria! " id="password" /></td>
+								requiredMessage="Password obbligatoria! " id="password" />
+							<h:message for="password" /></td>
 					</tr>
 				</table>
 				<h:commandButton styleClass="btn btn-warning" value="Login"
 					action="#{administratorController.loginAdministrator }" />
-				<h:message for="email" />
-				<h:message for="password" />
+
 				<p align="center">
 					<b>${administratorController.loginError }</b>
 				</p>
@@ -43,6 +44,5 @@
 			</div>
 		</h:form>
 	</f:view>
-
 </body>
 </html>

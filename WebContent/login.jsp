@@ -12,20 +12,19 @@
 		<div align="center">
 			<p align="right">
 				<h:outputLink style="color: Blue"
-					value="faces/loginAmministratore.jsp">Login come Amministratore</h:outputLink>
+					value="faces/loginAdministrator.jsp">Login come Amministratore</h:outputLink>
 			</p>
 			<h1>Login Utente</h1>
 
 		</div>
 		<h:form>
-
 			<div align="center">
 				<table>
 					<tr>
 						<td>Email</td>
 						<td><h:inputText value="#{userController.email}"
 								styleClass="form-control" required="true"
-								requiredMessage="  Email obbligatiorio! " id="email" /> <h:message
+								requiredMessage="  Email obbligatioria! " id="email" /> <h:message
 								for="email" /></td>
 
 					</tr>

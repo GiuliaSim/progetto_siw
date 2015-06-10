@@ -24,12 +24,11 @@
 				</tr>
 				<c:forEach var="product" items="#{productController.products}">
 					<tr>
-						<!-- <td><h:commandLink
-								action="#{productController.getAllProducts}"
+						<td><h:commandLink
+								action="#{productController.getProductByIdUser}"
 								value="#{product.name}">
 								<f:param name="id" value="#{product.id }" />
-							</h:commandLink></td> -->
-						<td>${product.name}</td>
+							</h:commandLink></td>
 						<td>${product.price}</td>
 						<td>${product.code}</td>
 					</tr>

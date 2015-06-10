@@ -17,7 +17,7 @@
 				<h:commandButton value="Submit" action="#{productController.listProduct()}" />
 			</div>
 			<div>
-				Lista dei Prodotti:
+				Consulta catalogo:
 				<h:commandButton value="Submit"
 					action="#{productController.listProduct() }" />
 			</div>
@@ -25,7 +25,7 @@
 				<h:commandButton value="Logout"
 					action="#{userController.logoutUser }" />
 			</div>
-
+			
 		</h:form>
 	</f:view>
 </body>

@@ -8,6 +8,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 import model.Product;
+import model.Provider;
 
 
 @Stateless(name="pFacade")
@@ -55,5 +56,22 @@ public class ProductFacade {
 		Product product = this.em.find(Product.class, id);
 		this.em.remove(product);
 			
+	}
+	
+	public List<Provider> getAllProviders(){
+		TypedQuery<Provider> allProvider = this.em.createQuery("SELECT p FROM Provider p", Provider.class);
+		return allProvider.getResultList();
+	}
+	
+	public Provider addProvider(Long idProduct, Long idProvider){
+		Product product = this.em.find(Product.class, idProduct);
+		Provider provider = this.em.find(Provider.class, idProvider);
+		product.getProviders().add(provider);
+		return provider;
+	}
+	
+	public List<Provider> getProvidersByProduct(Long id){
+		TypedQuery<Provider> providers = this.em.createQuery("SELECT p FROM Provider p WHERE p.products.id =: id", Provider.class).setParameter("id", id);
+		return providers.getResultList();
 	}
 }

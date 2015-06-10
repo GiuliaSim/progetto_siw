@@ -6,81 +6,77 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Registrazione Utente</title>
+<title>New Provider</title>
 </head>
 <body>
 	<f:view>
 		<h:form>
 			<div>
 				Nome:
-				<h:inputText value="#{userController.name}" required="true"
+				<h:inputText value="#{providerController.name}" required="true"
 					requiredMessage=" Name is mandatory" id="name" />
 				<strong><h:message for="name" /></strong>
 			</div>
 			<div>
-				Cognome:
-				<h:inputText value="#{userController.lastname}" required="true"
-					requiredMessage=" Lastname is mandatory" id="lastname" />
-				<h:message for="lastname" />
+				Telefono:
+				<h:inputText value="#{providerController.phoneNumber}"
+					required="true" requiredMessage=" PhoneNumber is mandatory"
+					id="phoneNumber" />
+				<h:message for="phoneNumber" />
 			</div>
 			<div>
 				Email:
-				<h:inputText value="#{userController.email}" required="true"
+				<h:inputText value="#{providerController.email}" required="true"
 					requiredMessage=" Email is mandatory" id="email" />
 				<h:message for="email" />
 			</div>
 			<div>
-				Password:
-				<h:inputTextarea value="#{userController.password}" required="true"
-					requiredMessage=" Password is mandatory" id="password" />
-				<h:message for="password" />
+				Partita IVA:
+				<h:inputTextarea value="#{ providerController.vatid}"
+					required="true" requiredMessage=" VatID is mandatory" id="vatid" />
+				<h:message for="vatid" />
 			</div>
-			<div>
-				Data di nascita:
-				<h:inputText value="#{userController.dateOfBirth}">
-					<f:convertDateTime pattern="dd-MM-yyyy" />
-				</h:inputText>
-			</div>
-
 			<div>
 				Città:
-				<h:inputText value="#{userController.city}" required="true"
+				<h:inputText value="#{providerController.city}" required="true"
 					requiredMessage="city is mandatory" id="city" />
 				<strong><h:message for="city" /></strong>
 			</div>
 
 			<div>
 				Via:
-				<h:inputText value="#{userController.street}" required="true"
+				<h:inputText value="#{providerController.street}" required="true"
 					requiredMessage="street is mandatory" id="street" />
 				<strong><h:message for="street" /></strong>
 			</div>
 
 			<div>
 				CAP:
-				<h:inputText value="#{userController.zipcode}" required="true"
+				<h:inputText value="#{providerController.zipcode}" required="true"
 					requiredMessage="zipcode is mandatory" id="zipcode" />
 				<strong><h:message for="zipcode" /></strong>
 			</div>
 
 			<div>
 				Paese:
-				<h:inputText value="#{userController.country}" required="true"
+				<h:inputText value="#{providerController.country}" required="true"
 					requiredMessage="country is mandatory" id="country" />
 				<strong><h:message for="country" /></strong>
 			</div>
 
 			<div>
 				Stato:
-				<h:inputText value="#{userController.state}" required="true"
+				<h:inputText value="#{providerController.state}" required="true"
 					requiredMessage="state is mandatory" id="state" />
 				<strong><h:message for="state" /></strong>
 			</div>
-	<br>
+			<br>
 			<div>
 				<h:commandButton value="Conferma"
-					action="#{userController.createUser()}" />
-				<h:outputLink style="color: Blue" value="faces/login.jsp">Torna indietro</h:outputLink>
+					action="#{providerController.createProvider()}">
+					<f:param name="idProduct" value="#{productController.id}" />
+				</h:commandButton>
+				<a href="javascript:history.back()">Annulla operazione</a>
 			</div>
 		</h:form>
 

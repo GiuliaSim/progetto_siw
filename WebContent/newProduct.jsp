@@ -14,19 +14,19 @@
 		<h:form>
 			<table>
 				<tr>
-					<td>Name:</td>
+					<td>Nome:</td>
 					<td><h:inputText value="#{productController.name}"
 							required="true" requiredMessage="Name is mandatory" id="name" />
 						<strong><h:message for="name" /></strong></td>
 				</tr>
 				<tr>
-					<td>Code:</td>
+					<td>Codice:</td>
 					<td><h:inputText value="#{productController.code}"
 							required="true" requiredMessage="Code is mandatory" id="code" />
 						<h:message for="code" /></td>
 				</tr>
 				<tr>
-					<td>Price:</td>
+					<td>Prezzo:</td>
 					<td><h:inputText value="#{productController.price}"
 							required="true" requiredMessage="Price is mandatory"
 							converterMessage="Price must be a number" id="price" /> <h:message
@@ -34,13 +34,13 @@
 				</tr>
 
 				<tr>
-					<td>Desc:</td>
+					<td>Descrizione:</td>
 					<td><h:inputTextarea value="#{productController.description}"
 							required="false" cols="20" rows="5" /></td>
 				</tr>
 			</table>
 			<div>
-				<h:commandButton value="Submit"
+				<h:commandButton value="Conferma"
 					action="#{productController.createProduct()}" />
 			</div>
 			<br>

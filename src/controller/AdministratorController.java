@@ -43,7 +43,7 @@ public class AdministratorController {
 			}this.setLoginError("Email o Password sbagliata");
 		}catch(Exception e){
 			this.setLoginError("Email o Password sbagliata");
-		}return "login";
+		}return "loginAdministrator";
 	}
 	
 	public String logoutAdministrator(){
