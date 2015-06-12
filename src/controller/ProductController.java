@@ -53,6 +53,10 @@ public class ProductController {
 		this.products = this.productFacade.getAllProducts();
 		return "products";
 	}
+	public String listProductForOrder(){
+		this.products = this.productFacade.getAllProducts();
+		return "catalog";
+	}
 	public String listProductAdministrator(){
 		this.products = this.productFacade.getAllProducts();
 		return "productsAdministrator";
@@ -77,6 +81,11 @@ public class ProductController {
 		this.providersByProduct = this.productFacade.getProvidersByProduct(this.id);
 		return "productAdministrator";
 	}
+	public String getProductByIdForOrder(){
+		this.product = this.productFacade.getProduct(this.id);
+		return "productForOrder";
+	}
+	
 	
 	public String getProductByIdUser(){
 		this.product = this.productFacade.getProduct(this.id);

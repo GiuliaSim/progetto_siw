@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -12,36 +13,26 @@ public class Order {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
+
 	@Column(nullable = false)
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date creationDate;
-	
+
 	@Column
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date closingDate;
-	
-	@Column
-	@Temporal(TemporalType.DATE)
-	private Date evasionDate;
-	
+
+
 	@ManyToOne
 	private User user;
-	
+
 	@OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST,CascadeType.REMOVE})
 	private List<OrderLine> orderLines;
-	
-	public Order(){
-	}
 
-	public Order(Date creationDate, Date closingDate, Date evasionDate,
-			User user, List<OrderLine> orderLines) {
-		super();
-		this.creationDate = creationDate;
-		this.closingDate = closingDate;
-		this.evasionDate = evasionDate;
-		this.user = user;
-		this.orderLines = orderLines;
+
+	public Order() {
+		this.creationDate = new Date();
+		this.orderLines = new ArrayList<OrderLine>();
 	}
 
 	public Long getId() {
@@ -64,14 +55,6 @@ public class Order {
 		this.closingDate = closingDate;
 	}
 
-	public Date getEvasionDate() {
-		return evasionDate;
-	}
-
-	public void setEvasionDate(Date evasionDate) {
-		this.evasionDate = evasionDate;
-	}
-
 	public User getUser() {
 		return user;
 	}
@@ -87,13 +70,11 @@ public class Order {
 	public void setOrderLines(List<OrderLine> orderLines) {
 		this.orderLines = orderLines;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Order [id=" + id + ", creationDate=" + creationDate
-				+ ", closingDate=" + closingDate + ", evasionDate="
-				+ evasionDate + ", user=" + user + ", orderLines=" + orderLines
-				+ "]";
+				+ ", closingDate=" + closingDate + ", user=" + user
+				+ ", orderLines=" + orderLines + "]";
 	}
-	
 }

@@ -14,7 +14,7 @@
 			<h1>Benvenuto</h1>
 			<div>
 				Effettua Ordine:
-				<h:commandButton value="Submit" action="#{productController.listProduct()}" />
+				<h:commandButton value="Submit" action="#{ordineController.createOrdine()}" />
 			</div>
 			<div>
 				Consulta catalogo:

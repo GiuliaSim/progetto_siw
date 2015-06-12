@@ -11,75 +11,80 @@
 <body>
 	<f:view>
 		<h:form>
-			<div>
-				Nome:
-				<h:inputText value="#{userController.name}" required="true"
-					requiredMessage=" Name is mandatory" id="name" />
-				<strong><h:message for="name" /></strong>
-			</div>
-			<div>
-				Cognome:
-				<h:inputText value="#{userController.lastname}" required="true"
-					requiredMessage=" Lastname is mandatory" id="lastname" />
-				<h:message for="lastname" />
-			</div>
-			<div>
-				Email:
-				<h:inputText value="#{userController.email}" required="true"
-					requiredMessage=" Email is mandatory" id="email" />
-				<h:message for="email" />
-			</div>
-			<div>
-				Password:
-				<h:inputTextarea value="#{userController.password}" required="true"
-					requiredMessage=" Password is mandatory" id="password" />
-				<h:message for="password" />
-			</div>
-			<div>
-				Data di nascita:
-				<h:inputText value="#{userController.dateOfBirth}">
-					<f:convertDateTime pattern="dd-MM-yyyy" />
-				</h:inputText>
-			</div>
+			<table>
 
-			<div>
-				Città:
-				<h:inputText value="#{userController.city}" required="true"
-					requiredMessage="city is mandatory" id="city" />
-				<strong><h:message for="city" /></strong>
-			</div>
+				<tr>
+					<td>Nome:</td>
+					<td><h:inputText value="#{userController.name}"
+							required="true" requiredMessage=" Name is mandatory" id="name" />
+						<strong><h:message for="name" /></strong></td>
+				</tr>
+				<tr>
+					<td>Cognome:</td>
+					<td><h:inputText value="#{userController.lastname}"
+							required="true" requiredMessage=" Lastname is mandatory"
+							id="lastname" /> <h:message for="lastname" /></td>
+				</tr>
+				<tr>
+					<td>Email:</td>
+					<td><h:inputText value="#{userController.email}"
+							required="true" requiredMessage=" Email is mandatory" id="email" />
+						<h:message for="email" /></td>
+				</tr>
+				<tr>
+					<td>Password:</td>
+					<td><h:inputTextarea value="#{userController.password}"
+							required="true" requiredMessage=" Password is mandatory"
+							id="password" /> <h:message for="password" /></td>
+				</tr>
+				<tr>
+					<td>Data di nascita:</td>
+					<td><h:inputText value="#{userController.dateOfBirth}">
+							<f:convertDateTime pattern="dd-MM-yyyy" />
+						</h:inputText></td>
+				</tr>
 
-			<div>
-				Via:
-				<h:inputText value="#{userController.street}" required="true"
-					requiredMessage="street is mandatory" id="street" />
-				<strong><h:message for="street" /></strong>
-			</div>
+				<tr>
+					<td>Città:</td>
+					<td><h:inputText value="#{userController.city}"
+							required="true" requiredMessage="city is mandatory" id="city" />
+						<strong><h:message for="city" /></strong></td>
+				</tr>
 
-			<div>
-				CAP:
-				<h:inputText value="#{userController.zipcode}" required="true"
-					requiredMessage="zipcode is mandatory" id="zipcode" />
-				<strong><h:message for="zipcode" /></strong>
-			</div>
+				<tr>
+					<td>Via:</td>
+					<td><h:inputText value="#{userController.street}"
+							required="true" requiredMessage="street is mandatory" id="street" />
+						<strong><h:message for="street" /></strong></td>
+				</tr>
 
-			<div>
-				Paese:
-				<h:inputText value="#{userController.country}" required="true"
-					requiredMessage="country is mandatory" id="country" />
-				<strong><h:message for="country" /></strong>
-			</div>
+				<tr>
+					<td>CAP:</td>
+					<td><h:inputText value="#{userController.zipcode}"
+							required="true" requiredMessage="zipcode is mandatory"
+							id="zipcode" /> <strong><h:message for="zipcode" /></strong></td>
+				</tr>
 
-			<div>
-				Stato:
-				<h:inputText value="#{userController.state}" required="true"
-					requiredMessage="state is mandatory" id="state" />
-				<strong><h:message for="state" /></strong>
-			</div>
-	<br>
+				<tr>
+					<td>Paese:</td>
+					<td><h:inputText value="#{userController.country}"
+							required="true" requiredMessage="country is mandatory"
+							id="country" /> <strong><h:message for="country" /></strong></td>
+				</tr>
+
+				<tr>
+					<td>Stato:</td>
+					<td><h:inputText value="#{userController.state}"
+							required="true" requiredMessage="state is mandatory" id="state" />
+						<strong><h:message for="state" /></strong></td>
+				</tr>
+
+			</table>
+			<br>
 			<div>
 				<h:commandButton value="Conferma"
-					action="#{userController.createUser()}" />
+					action="#{userController.createUser()}" /><br>
+
 				<h:outputLink style="color: Blue" value="faces/login.jsp">Torna indietro</h:outputLink>
 			</div>
 		</h:form>

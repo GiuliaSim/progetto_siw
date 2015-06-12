@@ -30,7 +30,7 @@ public class User {
 	private Date dateOfBirth;
 	
 	@Column
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date registrationDate;
 	
 	@OneToMany(mappedBy="user", fetch=FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
@@ -123,5 +123,9 @@ public class User {
 
 	public void setAddress(Address address) {
 		this.address = address;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 }
