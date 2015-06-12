@@ -22,6 +22,9 @@ public class ProductController {
 	@ManagedProperty(value = "#{param.idProvider}")
 	private Long idProvider;
 	
+	@ManagedProperty(value="#{param.idOrder}")
+	private Long idOrder;
+	
 	private String name;
 	private Float price;
 	private String description;
@@ -192,5 +195,13 @@ public class ProductController {
 
 	public void setProvider(Provider provider) {
 		this.provider = provider;
+	}
+
+	public Long getIdOrder() {
+		return idOrder;
+	}
+
+	public void setIdOrder(Long idOrder) {
+		this.idOrder = idOrder;
 	}
 }

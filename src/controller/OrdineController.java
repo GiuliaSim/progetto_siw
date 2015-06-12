@@ -1,6 +1,7 @@
 package controller;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
@@ -8,6 +9,7 @@ import javax.faces.bean.ManagedProperty;
 
 import facade.OrdineFacade;
 import model.Order;
+import model.OrderLine;
 import model.User;
 
 @ManagedBean
@@ -15,26 +17,32 @@ public class OrdineController {
 
 	@EJB (beanName = "oFacade")
 	private OrdineFacade ordineFacade;
-	
+
 	@ManagedProperty(value="#{param.id}")
 	private Long id;
-	
+
 	@ManagedProperty(value="#{param.idProduct}")
 	private Long idProduct;
-	
+
 	@ManagedProperty(value="#{param.idUser}")
 	private Long idUser;
-	
+
 	private Date creationTime;
 	private Date closingDate;
 	private User user;
 	private Order ordine;
-	
+	private List<OrderLine> orderLines;
+
 	public String createOrdine(){
 		this.ordine=this.ordineFacade.createOrdine(idUser);
 		return "ordine";
-}
+	}
 
+	public List<OrderLine> ListOrderLines(){
+		this.orderLines = this.ordineFacade.listOrderLines(this.id);
+		return this.orderLines;
+	}
+	
 	public OrdineFacade getOrdineFacade() {
 		return ordineFacade;
 	}
@@ -98,6 +106,14 @@ public class OrdineController {
 	public void setOrdine(Order ordine) {
 		this.ordine = ordine;
 	}
-	
+
+	public List<OrderLine> getOrderLines() {
+		return orderLines;
+	}
+
+	public void setOrderLines(List<OrderLine> orderLines) {
+		this.orderLines = orderLines;
+	}
+
 }
 

@@ -23,11 +23,14 @@ public class OrdineLineController {
 	private Long idOrdine;
 	
 	private OrderLine ordineLine;
+	
+	@ManagedProperty(value = "#{param.price}")
 	private Float price;
+	
 	private Integer quantity;
 	
 	public String createOrdineLine(){
-		this.ordineLine = this.ordineLineFacade.createOrdineLine(this.idProduct,this.price,this.quantity);
+		this.ordineLine = this.ordineLineFacade.createOrdineLine(this.idProduct,this.price,this.quantity,this.idOrdine);
 		return "ordine";
 	}
 

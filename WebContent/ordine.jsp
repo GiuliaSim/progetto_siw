@@ -13,11 +13,26 @@
 	<f:view>
 		<h:form>
 			<h1>Creazione Ordine</h1>
-			<br>
+			<table>
+				<tr>
+					<th>Nome Prodotto</th>
+					<th>Prezzo</th>
+					<th>Quantità</th>
+				</tr>
+				<c:forEach var="orderLine" items="#{ordineController.orderLines}">
+					<tr>
+						<td>${orderLine.idProduct}</td>
+						<td>${orderLine.price}</td>
+						<td>${orderLine.quantity}</td>
+					</tr>
+				</c:forEach>
+			</table>
 			<div>
 				Aggiungi un prodotto:
 				<h:commandButton value="Submit"
-					action="#{productController.listProductForOrder()}" />
+					action="#{productController.listProductForOrder()}">
+					<f:param name="idOrder" value="#{ordineController.ordine.id }" />
+				</h:commandButton>
 			</div>
 
 			<div>
@@ -25,10 +40,6 @@
 				<h:commandButton value="Submit"
 					action="#{ordineController.closeOrder()}" />
 			</div>
-
-
-
-
 		</h:form>
 	</f:view>
 

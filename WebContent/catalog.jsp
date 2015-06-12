@@ -25,6 +25,7 @@
 								action="#{productController.getProductByIdForOrder()}"
 								value="#{product.name}">
 								<f:param name="id" value="#{product.id}" />
+								<f:param name="idOrder" value="#{productController.idOrder }"/>
 							</h:commandLink></td>
 						<td>${product.price}</td>
 						<td>${product.code}</td>

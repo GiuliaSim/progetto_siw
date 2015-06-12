@@ -12,9 +12,6 @@
 <body>
 	<f:view>
 		<h:form>
-		IDID: ${productController.product.id }<br>
-		PREZZO: ${productController.product.price }
-		<br>
 			<h1>${productController.product.name}</h1>
 			<h2>Dettagli</h2>
 			<div>Codice: ${productController.product.code}</div>
@@ -25,18 +22,16 @@
 		
 		Quantità: <h:inputText value="#{ordineLineController.quantity}"
 				required="true" requiredMessage="Quantity is mandatory"
-				id="quantity" />
+				converterMessage="Price must be a number" id="quantity" />
 			<h:message for="quantity" />
 			<h:commandButton value="Aggiungi prodotto all'ordine"
-				action="#{ordineLineController.createOrdineLine}">
+				action="#{ordineLineController.createOrdineLine()}">
 				<f:param name="idProduct" value="#{productController.product.id}" />
 				<f:param name="price" value="#{productController.product.price }" />
-
+				<f:param name="idOrdine" value="#{productController.idOrder }"/>
 			</h:commandButton>
 			<br>
-			<h:commandButton action="#{ordineLineController.closeOrder}"
-				value="Chiudi l'ordine"></h:commandButton>
-			<a href="faces/homeAdministrator.jsp">Torna al menu</a>
+			<a href="faces/homeUser.jsp">Torna al menu</a>
 		</h:form>
 	</f:view>
 </body>
