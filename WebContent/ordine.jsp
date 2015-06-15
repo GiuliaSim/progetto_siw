@@ -21,7 +21,7 @@
 				</tr>
 				<c:forEach var="orderLine" items="#{ordineController.orderLines}">
 					<tr>
-						<td>${orderLine.idProduct}</td>
+						<td></td>
 						<td>${orderLine.price}</td>
 						<td>${orderLine.quantity}</td>
 					</tr>
@@ -31,7 +31,7 @@
 				Aggiungi un prodotto:
 				<h:commandButton value="Submit"
 					action="#{productController.listProductForOrder()}">
-					<f:param name="idOrder" value="#{ordineController.ordine.id }" />
+					
 				</h:commandButton>
 			</div>
 

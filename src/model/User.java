@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -12,51 +13,56 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
+
 	@Column(nullable=false)
 	private String name;
-	
+
 	@Column(nullable=false)
 	private String lastname;
-	
+
 	@Column(nullable=false, unique = true)
 	private String email;
-	
+
 	@Column(nullable=false)
 	private String password;
-	
+
 	@Column(nullable=false)
 	@Temporal(TemporalType.DATE)
 	private Date dateOfBirth;
-	
+
 	@Column
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date registrationDate;
-	
+
 	@OneToMany(mappedBy="user", fetch=FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
 	private List<Order> orders;
-	
+
 	@OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
 	private Address address;
-	
+
 	public User(){
-		
+		this.registrationDate = new Date();
+		this.orders = new ArrayList<Order>();
 	}
 
 	public User(String name, String lastname, String email, String password,
-			Date dateOfBirth, Date registrationDate, List<Order> orders,
-			Address address) {
+			Date dateOfBirth, Address address) {
 		super();
 		this.name = name;
 		this.lastname = lastname;
 		this.email = email;
 		this.password = password;
 		this.dateOfBirth = dateOfBirth;
-		this.registrationDate = registrationDate;
-		this.orders = orders;
+		this.registrationDate = new Date();
+		this.orders = new ArrayList<Order>();
 		this.address = address;
 	}
+	
+	public void addOrder(Order order){
+		this.orders.add(order);
+	}
 
+	
 	public Long getId() {
 		return id;
 	}

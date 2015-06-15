@@ -16,6 +16,7 @@
 		<div>Codice: ${productController.product.code}</div>
 		<div>Prezzo: ${productController.product.price}</div>
 		<div>Descrizione: ${productController.product.description}</div>
+		<div>Quantità in magazzino: ${productController.product.quantityAvailable}</div>
 		<h4>Fornitori:</h4>
 		<table>
 			<tr>

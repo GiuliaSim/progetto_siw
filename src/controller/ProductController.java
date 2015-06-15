@@ -5,7 +5,6 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.context.FacesContext;
 
 import model.Product;
 import model.Provider;
@@ -22,12 +21,10 @@ public class ProductController {
 	@ManagedProperty(value = "#{param.idProvider}")
 	private Long idProvider;
 	
-	@ManagedProperty(value="#{param.idOrder}")
-	private Long idOrder;
-	
 	private String name;
 	private Float price;
 	private String description;
+	private Integer quantityAvailable;
 	private String code;
 	private Product product;
 	private List<Product> products;
@@ -38,10 +35,8 @@ public class ProductController {
 	
 	
 	public String createProduct(){
-		this.product = this.productFacade.createProduct(name,price, description,code);
+		this.product = this.productFacade.createProduct(name,price, description,code,quantityAvailable);
 		this.providersByProduct = this.productFacade.getProvidersByProduct(this.id);
-		//FacesContext context = FacesContext.getCurrentInstance();
-		//context.getExternalContext().getSessionMap().put("product", this.product);
 		return "productAdministrator";
 	}
 
@@ -197,11 +192,11 @@ public class ProductController {
 		this.provider = provider;
 	}
 
-	public Long getIdOrder() {
-		return idOrder;
+	public Integer getQuantityAvailable() {
+		return quantityAvailable;
 	}
 
-	public void setIdOrder(Long idOrder) {
-		this.idOrder = idOrder;
+	public void setQuantityAvailable(Integer quantityAvailable) {
+		this.quantityAvailable = quantityAvailable;
 	}
 }

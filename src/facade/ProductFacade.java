@@ -23,12 +23,13 @@ public class ProductFacade {
 	public ProductFacade(){}
 
 	
-	public Product createProduct(String name, Float price, String description,String code ) {
+	public Product createProduct(String name, Float price, String description,String code, Integer quantityAvailable ) {
 			Product product = new Product();
 			product.setCode(code);
 			product.setDescription(description);
 			product.setName(name);
 			product.setPrice(price);
+			product.setQuantityAvailable(quantityAvailable);
 			try {
 				this.em.persist(product);
 				return product;

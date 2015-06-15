@@ -1,6 +1,7 @@
 package model;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -43,6 +44,7 @@ public class Product {
 		this.description = description;
 		this.code = code;
 		this.quantityAvailable = quantityAvailable;
+		this.providers = new ArrayList<Provider>();
 	}
 
 	public Long getId() {
@@ -64,14 +66,6 @@ public class Product {
 
 	public void setProviders(List<Provider> providers) {
 		this.providers = providers;
-	}
-
-	public Integer getQuantitaMagazzino() {
-		return quantityAvailable;
-	}
-
-	public void setQuantitaMagazzino(Integer quantitaMagazzino) {
-		this.quantityAvailable = quantitaMagazzino;
 	}
 
 	public String getName() {

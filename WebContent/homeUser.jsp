@@ -11,10 +11,12 @@
 <body>
 	<f:view>
 		<h:form>
+		IDID: ${user.id }
 			<h1>Benvenuto</h1>
 			<div>
 				Effettua Ordine:
-				<h:commandButton value="Submit" action="#{ordineController.createOrdine()}" />
+				<h:commandButton value="Submit"
+					action="#{ordineController.createOrdine()}" />
 			</div>
 			<div>
 				Consulta catalogo:
@@ -25,7 +27,7 @@
 				<h:commandButton value="Logout"
 					action="#{userController.logoutUser }" />
 			</div>
-			
+
 		</h:form>
 	</f:view>
 </body>

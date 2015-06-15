@@ -22,17 +22,6 @@ public class AdministratorController {
 	@EJB
 	private AdministratorFacade administratorFacade;
 
-	/*public String createAdministrator(){
-		try{
-			this.administrator = this.administratorFacade.createAdministrator(name, lastname, email, password);
-			FacesContext context = FacesContext.getCurrentInstance();
-			context.getExternalContext().getSessionMap().put("user", this.administrator);
-			return "homeAdministrator";
-		}catch(Exception e){
-			this.setSingUpError("Email is not valid.");
-		}return "login";
-	}*/
-
 	public String loginAdministrator(){
 		try{
 			this.administrator = this.administratorFacade.getAdministrator(email);

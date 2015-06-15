@@ -38,6 +38,15 @@
 					<td><h:inputTextarea value="#{productController.description}"
 							required="false" cols="20" rows="5" /></td>
 				</tr>
+				
+				<tr>
+					<td>Quantita' disponibile nel magazzino:</td>
+					<td><h:inputText value="#{productController.quantityAvailable}"
+							required="true" requiredMessage="Quantity is mandatory"
+							converterMessage="Quantity must be a number" id="quantityAvailable" /> <h:message
+							for="quantityAvailable" /></td>
+				</tr>
+				
 			</table>
 			<div>
 				<h:commandButton value="Conferma"

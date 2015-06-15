@@ -26,7 +26,8 @@ public class Order {
 	@ManyToOne
 	private User user;
 
-	@OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST,CascadeType.REMOVE})
+	@OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL,CascadeType.REMOVE})
+	@JoinColumn(name="orders_id")
 	private List<OrderLine> orderLines;
 
 
@@ -34,6 +35,11 @@ public class Order {
 		this.creationDate = new Date();
 		this.orderLines = new ArrayList<OrderLine>();
 	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 
 	public Long getId() {
 		return id;

@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.context.FacesContext;
 
 import facade.UserFacade;
@@ -16,8 +17,10 @@ import model.User;
 @ManagedBean
 public class UserController {
 
-	private Long id;
+	@ManagedProperty(value="#{user}")
 	private User user;
+	
+	private Long id;
 	private String name;
 	private String lastname;
 	private String email;
@@ -47,9 +50,9 @@ public class UserController {
 			context.getExternalContext().getSessionMap().put("user", this.user);
 			return "homeUser";
 		}catch(Exception e){
-			this.setSignUpError("Email is not valid");
+			this.setSignUpError("Email non valida");
 		}
-		return "login";
+		return "newUserRegistration";
 	}
 
 	public String loginUser(){
@@ -60,10 +63,10 @@ public class UserController {
 				context.getExternalContext().getSessionMap().put("user", this.user);
 				return "homeUser";
 			}
-			this.setLoginError("Wrong Password or Email!");
+			this.setLoginError("Email o Password errata");
 		}
 		catch(Exception e){
-			this.setLoginError("Wrong Password or email!");
+			this.setLoginError("Email o Password errata");
 		}
 		return "login";
 	}

@@ -17,7 +17,7 @@ public class OrderLine {
 	
 	@OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
 	private Product product;
-	
+
 	public OrderLine(){
 		
 	}

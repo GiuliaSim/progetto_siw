@@ -29,7 +29,7 @@
 					<td>Email:</td>
 					<td><h:inputText value="#{userController.email}"
 							required="true" requiredMessage=" Email is mandatory" id="email" />
-						<h:message for="email" /></td>
+						<h:message for="email" />${userController.signUpError}</td>
 				</tr>
 				<tr>
 					<td>Password:</td>

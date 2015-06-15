@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -31,14 +32,14 @@ public class Provider {
 	}
 
 	public Provider(String name, String phoneNumber, String email,
-			String vatid, Address address, List<Product> products) {
+			String vatid, Address address) {
 		super();
 		this.name = name;
 		this.phoneNumber = phoneNumber;
 		this.email = email;
 		this.vatid = vatid;
 		this.address = address;
-		this.products = products;
+		this.products = new ArrayList<Product>();
 	}
 	
 
