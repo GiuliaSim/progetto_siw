@@ -15,13 +15,13 @@
 			<h1>Creazione Ordine</h1>
 			<table>
 				<tr>
-					<th>Nome Prodotto</th>
+					<th>Id Prodotto</th>
 					<th>Prezzo</th>
 					<th>Quantità</th>
 				</tr>
 				<c:forEach var="orderLine" items="#{ordineController.orderLines}">
 					<tr>
-						<td></td>
+						<td>${orderLine.idProduct}</td>
 						<td>${orderLine.price}</td>
 						<td>${orderLine.quantity}</td>
 					</tr>

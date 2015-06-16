@@ -24,7 +24,6 @@ public class OrdineController {
 	@EJB (beanName = "pFacade")
 	private ProductFacade productFacade;
 
-
 	@ManagedProperty(value="#{param.idProduct}")
 	private Long idProduct;
 
@@ -45,6 +44,9 @@ public class OrdineController {
 	private OrderLine orderLine;
 	private Integer quantity;
 	private String error;
+	
+	private List<Order> orders;
+	private Float subtotal;
 
 	public String createOrdine(){
 		FacesContext context = FacesContext.getCurrentInstance();
@@ -61,13 +63,19 @@ public class OrdineController {
 		Product product = this.productFacade.getProduct(this.idProduct);
 		if(this.quantity <= product.getQuantityAvailable()){
 			this.orderLine = this.ordineFacade.createOrdineLine(product, this.price, this.quantity);
+			this.subtotal= this.quantity*this.price;
 		}else{ this.setError("Quantità non disponibile");}
 		this.orderLines = this.ordineFacade.listOrderLines(this.ordine.getId());
 		return "ordine";
 	}
 	public List<OrderLine> listOrderLines(){
-		this.orderLines = this.ordineFacade.listOrderLines(this.ordine.getId());
+		this.orderLines = this.ordineFacade.listOrderLines(this.id);
 		return this.orderLines;
+	}
+	public String listOrderLine() {
+		this.orderLines=this.listOrderLines();
+		this.subtotal=this.quantity*this.price;
+		return "orderLine";
 	}
 	
 	public String closeOrder(){
@@ -75,9 +83,24 @@ public class OrdineController {
 		this.ordine = this.ordineFacade.closeOrder(this.closingDate);
 		return "homeUser";
 	}
+	public String listOrder(){
+		FacesContext context = FacesContext.getCurrentInstance();
+		User user = (User) context.getExternalContext().getSessionMap().get("user");
+		this.orders = this.ordineFacade.getListOrder(user);
+		return "orders";
+		
+	}
 
 	public OrdineFacade getOrdineFacade() {
 		return ordineFacade;
+	}
+
+	public List<Order> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
 	}
 
 	public void setOrdineFacade(OrdineFacade ordineFacade) {
@@ -98,6 +121,14 @@ public class OrdineController {
 
 	public void setIdProduct(Long idProduct) {
 		this.idProduct = idProduct;
+	}
+
+	public Float getSubtotal() {
+		return subtotal;
+	}
+
+	public void setSubtotal(Float subtotal) {
+		this.subtotal = subtotal;
 	}
 
 	public Date getCreationTime() {

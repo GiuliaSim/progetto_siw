@@ -68,6 +68,7 @@ public class ProductFacade {
 		Product product = this.em.find(Product.class, idProduct);
 		Provider provider = this.em.find(Provider.class, idProvider);
 		product.getProviders().add(provider);
+		provider.getProducts().add(product);
 		return provider;
 	}
 	

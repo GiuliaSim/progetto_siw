@@ -24,6 +24,11 @@
 					action="#{productController.listProduct() }" />
 			</div>
 			<div>
+				Propri ordini:
+				<h:commandButton value="Submit"
+					action="#{ordineController.listOrder() }" />
+			</div>
+			<div>
 				<h:commandButton value="Logout"
 					action="#{userController.logoutUser }" />
 			</div>

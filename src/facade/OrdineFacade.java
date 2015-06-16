@@ -70,4 +70,11 @@ public class OrdineFacade {
 		context.getExternalContext().getSessionMap().remove("currentOrder");
 		return order;
 	}
+
+	public List<Order> getListOrder(User user) {
+		Long idUser = user.getId();
+		TypedQuery<Order> query = this.em.createQuery("SELECT o FROM Order o WHERE o.user.id=:idUser", Order.class);
+		query.setParameter("idUser", idUser);
+		return query.getResultList();
+	}
 }
