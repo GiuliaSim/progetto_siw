@@ -7,9 +7,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<link href = "bootstrap.css" rel = "stylesheet" type ="text/css"></link>
 <title>Product</title>
 </head>
-<body>
+<body style = "font-family:georgia; margin-top:30px; margin-left:40px; margin-right:40px">
 	<f:view>
 		<h1>${productController.product.name}</h1>
 		<h2>Dettagli</h2>

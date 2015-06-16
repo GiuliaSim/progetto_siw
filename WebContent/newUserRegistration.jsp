@@ -6,84 +6,97 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link href="bootstrap.css" rel="stylesheet" type="text/css"></link>
 <title>Registrazione Utente</title>
 </head>
-<body>
+<body
+	style="font-family: georgia; margin-top: 30px; margin-left: 40px; margin-right: 40px" >
 	<f:view>
 		<h:form>
 			<table>
 
 				<tr>
-					<td>Nome:</td>
+					<td class="col-sm-3">Nome:</td>
 					<td><h:inputText value="#{userController.name}"
-							required="true" requiredMessage=" Name is mandatory" id="name" />
-						<strong><h:message for="name" /></strong></td>
+							styleClass="form-control" required="true"
+							requiredMessage=" Name is mandatory" id="name" /> <strong><h:message
+								for="name" /></strong></td>
 				</tr>
 				<tr>
-					<td>Cognome:</td>
+					<td class="col-sm-3">Cognome:</td>
 					<td><h:inputText value="#{userController.lastname}"
-							required="true" requiredMessage=" Lastname is mandatory"
-							id="lastname" /> <h:message for="lastname" /></td>
+							styleClass="form-control" required="true"
+							requiredMessage=" Lastname is mandatory" id="lastname" /> <h:message
+							for="lastname" /></td>
 				</tr>
 				<tr>
-					<td>Email:</td>
+					<td class="col-sm-3">Email:</td>
 					<td><h:inputText value="#{userController.email}"
-							required="true" requiredMessage=" Email is mandatory" id="email" />
-						<h:message for="email" />${userController.signUpError}</td>
+							styleClass="form-control" required="true"
+							requiredMessage=" Email is mandatory" id="email" /> <h:message
+							for="email" />${userController.signUpError}</td>
 				</tr>
 				<tr>
-					<td>Password:</td>
-					<td><h:inputTextarea value="#{userController.password}"
-							required="true" requiredMessage=" Password is mandatory"
-							id="password" /> <h:message for="password" /></td>
+					<td class="col-sm-3">Password:</td>
+					<td><h:inputText value="#{userController.password}"
+							styleClass="form-control" required="true"
+							requiredMessage=" Password is mandatory" id="password" /> <h:message
+							for="password" /></td>
 				</tr>
 				<tr>
-					<td>Data di nascita:</td>
-					<td><h:inputText value="#{userController.dateOfBirth}">
+					<td class="col-sm-3">Data di nascita:</td>
+					<td><h:inputText value="#{userController.dateOfBirth}"
+							styleClass="form-control">
 							<f:convertDateTime pattern="dd-MM-yyyy" />
 						</h:inputText></td>
 				</tr>
 
 				<tr>
-					<td>Città:</td>
+					<td class="col-sm-3">Città:</td>
 					<td><h:inputText value="#{userController.city}"
-							required="true" requiredMessage="city is mandatory" id="city" />
-						<strong><h:message for="city" /></strong></td>
+							styleClass="form-control" required="true"
+							requiredMessage="city is mandatory" id="city" /> <strong><h:message
+								for="city" /></strong></td>
 				</tr>
 
 				<tr>
-					<td>Via:</td>
+					<td class="col-sm-3">Via:</td>
 					<td><h:inputText value="#{userController.street}"
-							required="true" requiredMessage="street is mandatory" id="street" />
-						<strong><h:message for="street" /></strong></td>
+							styleClass="form-control" required="true"
+							requiredMessage="street is mandatory" id="street" /> <strong><h:message
+								for="street" /></strong></td>
 				</tr>
 
 				<tr>
-					<td>CAP:</td>
+					<td class="col-sm-3">CAP:</td>
 					<td><h:inputText value="#{userController.zipcode}"
-							required="true" requiredMessage="zipcode is mandatory"
-							id="zipcode" /> <strong><h:message for="zipcode" /></strong></td>
+							styleClass="form-control" required="true"
+							requiredMessage="zipcode is mandatory" id="zipcode" /> <strong><h:message
+								for="zipcode" /></strong></td>
 				</tr>
 
 				<tr>
-					<td>Paese:</td>
+					<td class="col-sm-3">Paese:</td>
 					<td><h:inputText value="#{userController.country}"
-							required="true" requiredMessage="country is mandatory"
-							id="country" /> <strong><h:message for="country" /></strong></td>
+							styleClass="form-control" required="true"
+							requiredMessage="country is mandatory" id="country" /> <strong><h:message
+								for="country" /></strong></td>
 				</tr>
 
 				<tr>
-					<td>Stato:</td>
+					<td class="col-sm-3">Stato:</td>
 					<td><h:inputText value="#{userController.state}"
-							required="true" requiredMessage="state is mandatory" id="state" />
-						<strong><h:message for="state" /></strong></td>
+							styleClass="form-control" required="true"
+							requiredMessage="state is mandatory" id="state" /> <strong><h:message
+								for="state" /></strong></td>
 				</tr>
 
 			</table>
 			<br>
 			<div>
-				<h:commandButton value="Conferma"
-					action="#{userController.createUser()}" /><br>
+				<h:commandButton value="Conferma" styleClass="btn btn-warning"
+					action="#{userController.createUser()}" />
+				<br>
 
 				<h:outputLink style="color: Blue" value="faces/login.jsp">Torna indietro</h:outputLink>
 			</div>

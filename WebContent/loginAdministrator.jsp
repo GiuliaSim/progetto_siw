@@ -5,44 +5,42 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link href="bootstrap.css" rel="stylesheet" type="text/css"></link>
 <title>Login Amministratore</title>
 </head>
-<body>
+<body style="font-family: georgia; margin-top: 80px">
 	<f:view>
-		<div>
-			<h1>Login Amministratore</h1>
+		<div class="container">
+			<h:form>
+				<div align="center" class="jumbotron">
+					<h1>Login Amministratore</h1>
+					<table>
+						<tr>
+							<td>Email</td>
+							<td><h:inputText value="#{administratorController.email}"
+									styleClass="form-control" required="true"
+									requiredMessage="Email obbligatiorio! " id="email" /> <h:message
+									for="email" /></td>
+						</tr>
+						<tr>
+							<td>Password</td>
+							<td><h:inputSecret
+									value="#{administratorController.password}"
+									styleClass="form-control" required="true"
+									requiredMessage="Password obbligatoria! " id="password" /> <h:message
+									for="password" /></td>
+						</tr>
+					</table><br>
+					<h:commandButton styleClass="btn btn-warning" value="Login"
+						action="#{administratorController.loginAdministrator }" />
+
+					<p align="center">
+						<b>${administratorController.loginError }</b>
+					</p>
+					<h:outputLink style="color: Blue" value="faces/login.jsp">Torna indietro</h:outputLink>
+				</div>
+			</h:form>
 		</div>
-		<h:form>
-			<div align="center">
-				<table>
-					<tr>
-						<td>Email</td>
-						<td><h:inputText value="#{administratorController.email}"
-								styleClass="form-control" required="true"
-								requiredMessage="Email obbligatiorio! " id="email" />
-							<h:message for="email" /></td>
-					</tr>
-					<tr>
-						<td>Password</td>
-						<td><h:inputSecret
-								value="#{administratorController.password}"
-								styleClass="form-control" required="true"
-								requiredMessage="Password obbligatoria! " id="password" />
-							<h:message for="password" /></td>
-					</tr>
-				</table>
-				<h:commandButton styleClass="btn btn-warning" value="Login"
-					action="#{administratorController.loginAdministrator }" />
-
-				<p align="center">
-					<b>${administratorController.loginError }</b>
-				</p>
-
-			</div>
-			<div align="center">
-				<h:outputLink style="color: Blue" value="faces/login.jsp">Torna indietro</h:outputLink>
-			</div>
-		</h:form>
 	</f:view>
 </body>
 </html>

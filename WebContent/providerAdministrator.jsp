@@ -6,9 +6,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link href = "bootstrap.css" rel = "stylesheet" type ="text/css"></link>
 <title>Provider</title>
 </head>
-<body>
+<body style = "font-family:georgia; margin-top:30px; margin-left:40px; margin-right:40px">
 	<f:view>
 		<h:form>
 			<h1>${providerController.provider.name}</h1>

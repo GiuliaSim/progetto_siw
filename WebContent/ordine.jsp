@@ -7,39 +7,31 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link href="bootstrap.css" rel="stylesheet" type="text/css"></link>
 <title>Insert title here</title>
 </head>
-<body>
+<body
+	style="font-family: georgia; margin-top: 30px; margin-left: 40px; margin-right: 40px">
 	<f:view>
 		<h:form>
 			<h1>Creazione Ordine</h1>
 			<table>
 				<tr>
-					<th>Id Prodotto</th>
-					<th>Prezzo</th>
-					<th>Quantità</th>
-				</tr>
-				<c:forEach var="orderLine" items="#{ordineController.orderLines}">
-					<tr>
-						<td>${orderLine.idProduct}</td>
-						<td>${orderLine.price}</td>
-						<td>${orderLine.quantity}</td>
-					</tr>
-				</c:forEach>
-			</table>
-			<div>
-				Aggiungi un prodotto:
-				<h:commandButton value="Submit"
-					action="#{productController.listProductForOrder()}">
-					
-				</h:commandButton>
-			</div>
+					<td>Aggiungi un prodotto:</td>
+					<td><h:commandButton value="Submit"
+							styleClass="btn btn-warning"
+							action="#{productController.listProductForOrder()}">
 
-			<div>
-				Chiudi l'ordine:
-				<h:commandButton value="Submit"
-					action="#{ordineController.closeOrder()}" />
-			</div>
+						</h:commandButton></td>
+				</tr>
+
+				<tr>
+					<td>Chiudi l'ordine:</td>
+					<td><h:commandButton value="Submit"
+							styleClass="btn btn-warning"
+							action="#{ordineController.closeOrder()}" /></td>
+				</tr>
+			</table>
 		</h:form>
 	</f:view>
 

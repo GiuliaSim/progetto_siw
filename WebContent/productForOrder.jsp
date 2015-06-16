@@ -7,20 +7,20 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link href="bootstrap.css" rel="stylesheet" type="text/css"></link>
 <title>Insert title here</title>
 </head>
-<body>
+<body
+	style="font-family: georgia; margin-top: 30px; margin-left: 40px; margin-right: 40px">
 	<f:view>
 		<h:form>
-		IDProduct: ${productController.product.id} <br>
-		PRICE:${productController.product.price } <br>
-		IDOrder: ${currentOrder.id} <br>
 			<h1>${productController.product.name}</h1>
 			<h2>Dettagli</h2>
 			<div>Codice: ${productController.product.code}</div>
 			<div>Prezzo: ${productController.product.price}</div>
 			<div>Descrizione: ${productController.product.description}</div>
-			<div>Quantità in magazzino: ${productController.product.quantityAvailable}</div>
+			<div>Quantità in magazzino:
+				${productController.product.quantityAvailable}</div>
 
 		
 		
@@ -29,10 +29,11 @@
 				converterMessage="Price must be a number" id="quantity" />
 			<h:message for="quantity" />
 			<h:commandButton value="Aggiungi prodotto all'ordine"
+				styleClass="btn btn-warning"
 				action="#{ordineController.createOrdineLine()}">
 				<f:param name="idProduct" value="#{productController.product.id}" />
 				<f:param name="price" value="#{productController.product.price }" />
-			
+
 			</h:commandButton>
 			<b>${ordineController.error}</b>
 			<br>

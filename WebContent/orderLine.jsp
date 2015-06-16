@@ -7,13 +7,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link href = "bootstrap.css" rel = "stylesheet" type ="text/css"></link>
 <title>Dettagli Ordine</title>
 </head>
-<body>
+<body style = "font-family:georgia; margin-top:30px; margin-left:40px; margin-right:40px">
 	<f:view>
 		<h:form>
 			<h1>Dettagli ordine:</h1>
-			<table>
+			<table class="table table-striped">
 				<tr>
 					<th>ID prodotto</th>
 					<th>Prezzo unitario</th>

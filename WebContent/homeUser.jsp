@@ -6,32 +6,40 @@
 <html>
 <head>
 <meta charset="US-ASCII">
+<link href="bootstrap.css" rel="stylesheet" type="text/css"></link>
 <title>Home User</title>
 </head>
-<body>
+<body
+	style="font-family: georgia; margin-top: 30px; margin-left: 40px; margin-right: 40px">
 	<f:view>
 		<h:form>
-		IDID: ${user.id }
 			<h1>Benvenuto</h1>
-			<div>
-				Effettua Ordine:
-				<h:commandButton value="Submit"
-					action="#{ordineController.createOrdine()}" />
-			</div>
-			<div>
-				Consulta catalogo:
-				<h:commandButton value="Submit"
-					action="#{productController.listProduct() }" />
-			</div>
-			<div>
-				Propri ordini:
-				<h:commandButton value="Submit"
-					action="#{ordineController.listOrder() }" />
-			</div>
-			<div>
-				<h:commandButton value="Logout"
-					action="#{userController.logoutUser }" />
-			</div>
+			<table>
+				<tr>
+					<td>Effettua Ordine:</td>
+					<td><h:commandButton value="Submit"
+							styleClass="btn btn-warning"
+							action="#{ordineController.createOrdine()}" /></td>
+				</tr>
+				<tr>
+					<td>Consulta catalogo:</td>
+					<td><h:commandButton value="Submit"
+							styleClass="btn btn-warning"
+							action="#{productController.listProduct() }" /></td>
+				</tr>
+				<tr>
+					<td>Propri ordini:</td>
+					<td><h:commandButton value="Submit"
+							styleClass="btn btn-warning"
+							action="#{ordineController.listOrder() }" /></td>
+				</tr>
+				<tr>
+					<td><h:commandButton value="Logout"
+							styleClass="btn btn-primary"
+							action="#{userController.logoutUser }" /></td>
+				</tr>
+			</table>
+
 
 		</h:form>
 	</f:view>

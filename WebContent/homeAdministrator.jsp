@@ -6,24 +6,33 @@
 <html>
 <head>
 <meta charset="US-ASCII">
+<link href="bootstrap.css" rel="stylesheet" type="text/css"></link>
 <title>Home Administrator</title>
 </head>
-<body>
+<body
+	style="font-family: georgia; margin-top: 30px; margin-left: 40px; margin-right: 40px">
 	<f:view>
 		<h:form>
+
 			<h1>Prodotti</h1>
-			<div>
-				Inserisci un Prodotto:
-				<h:commandButton value="Submit" action="newProduct.jsp" />
-			</div>
-			<div>
-				Lista dei Prodotti:
-				<h:commandButton value="Submit" action="#{productController.listProductAdministrator() }" />
-			</div>
-			<div><h:commandButton value="Logout" 
-					action="#{administratorController.logoutAdministrator }" />
-					 </div>
-					
+			<table>
+				<tr>
+					<td>Inserisci un Prodotto:</td>
+					<td><h:commandButton value="Submit"
+							styleClass="btn btn-warning" action="newProduct.jsp" /></td>
+				</tr>
+				<tr>
+					<td>Lista dei Prodotti:</td>
+					<td><h:commandButton value="Submit"
+							styleClass="btn btn-warning"
+							action="#{productController.listProductAdministrator() }" /></td>
+				</tr>
+				<tr>
+					<td><h:commandButton value="Logout"
+							styleClass="btn btn-primary"
+							action="#{administratorController.logoutAdministrator }" /></td>
+				</tr>
+			</table>
 		</h:form>
 	</f:view>
 </body>
