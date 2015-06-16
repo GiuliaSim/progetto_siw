@@ -1,0 +1,69 @@
+SPECIFICHE
+•	Caso d’uso UC1 : consulta listino
+	Attore primario: utente non registrato
+	Scenario principale di successo:
+1.	Un utente vuole consultare il catalogo dei prodotti
+2.	L’utente sceglie l’attività “Consulta Catalogo”
+3.	Il sistema mostra l’elenco dei prodotti
+4.	L’utente selezione l’id di un prodotto di cui vuole sapere i dettagli
+5.	Il sistema mostra i dettagli del prodotto 
+L’utente ripete i passi 3-5 un numero indefinito di volte 
+•	Caso d’uso UC2: inserimento prodotti nel catalogo
+	Attore primario: amministratore
+	Scenario principale di successo:
+1.	L’amministratore vuole inserire un nuovo prodotto nel catalogo
+2.	L’amministratore sceglie l’attività “Nuovo Prodotto”
+3.	L’amministratore inserisce i dettagli del prodotto
+4.	Il sistema registra il prodotto e ne mostra il riepilogo
+L’amministratore ripete i passi 2-4 un numero indefinito di volte
+	Pre-condizioni: L’amministratore è identificato e autenticato
+•	Caso d’uso UC3: inserimento nuovo fornitore al prodotto
+	Attore primario: amministratore
+	Scenario principale di successo:
+1.	L’amministratore vuole aggiungere un nuovo fornitore al prodotto
+2.	L’amministratore sceglie l’attività “Aggiungi Fornitore”
+3.	Il sistema mostra l’elenco dei fornitori
+4.	L’amministratore sceglie l’attività “Nuovo fornitore”
+5.	L’amministratore inserisce i dettagli del fornitore
+6.	Il sistema registra il prodotto e ne mostra il riepilogo
+L’amministratore ripete i passi 2-6 un numero indefinito di volte
+	Pre-condizioni:
+	L’amministratore è identificato e autenticato
+	Si stanno visualizzando i dettagli di un prodotto
+•	Caso d’uso UC4: login utente
+	Attore primario: utente
+	Scenario principale di successo:
+1.	Un utente vuole effettuare l’accesso
+2.	L’utente inserisce email e password
+3.	Il sistema identifica e autentifica l’utente
+•	Caso d’uso UC5: registrazione utente
+	Attore primario: utente non registrato
+	Scenario principale di successo:
+1.	Un utente vuole registrarsi
+2.	L’utente sceglie l’attività “Registrati”
+3.	L’utente inserisce i propri dati
+4.	Il sistema registra l’utente
+•	Caso d’uso UC6: effettua ordine
+	Attore primario: utente
+	Scenario principale di successo:
+1.	L’utente vuole effettuare un nuovo ordine
+2.	L’utente sceglie l’attività “Effettua Ordine”
+3.	L’utente sceglie l’attività “Aggiungi un prodotto”
+4.	Il sistema mostra il catalogo dei prodotti
+5.	L’utente seleziona l’id di un prodotto
+6.	Il sistema mostra i dettagli del prodotto
+7.	L’utente inserisce la quantità desiderata
+8.	Il sistema verifica la disponibilità del prodotto e aggiunge il prodotto e la quantità all’ordine
+L’utente ripete i passi 3-8 fino a che non indica che ha terminato
+9.	Il sistema registra tutte le informazioni del nuovo ordine e ne mostra il riepilogo 
+	Pre-condizioni: L’utente è identificato e autenticato
+•	Caso d’uso UC7: consulta i propri ordini
+	Attore primario: utente
+	Scenario principale di successo:
+1.	L’utente vuole visualizzare i propri ordini
+2.	L’utente sceglie l’attività “Propri ordini”
+3.	Il sistema mostra la lista degli ordini dell’utente
+4.	L’utente selezione l’id di un ordine 
+5.	Il sistema mostra i dettagli dell’ordine
+L’utente ripete i passi 3-5 un numero indefinito di volte
+	Pre-condizioni: L’utente è identificato e autenticato
